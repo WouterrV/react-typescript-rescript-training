@@ -10,3 +10,8 @@ export type ProductList = Product[]
 
 export type DeleteFromCartFunction = (string) => void;
 export type UpdateCartFunction = (string, number) => void;
+
+export interface ProductRowProps extends Product {
+  deleteFromCart: DeleteFromCartFunction,
+  updateCart: UpdateCartFunction
+}

@@ -2,8 +2,13 @@ import React from "react";
 import IconButton from "@material-ui/core/IconButton";
 import DeleteIcon from "@material-ui/icons/Delete";
 import AddShoppingCartIcon from "@material-ui/icons/AddShoppingCart";
+//import {ProductActionProps} from  "../../types/types";
 
-const ProductActions = ({ updateCartResetField, deleteFromCartResetField }) => (
+const ProductActions = ({ updateCartResetField, deleteFromCartResetField }:
+  { deleteFromCartResetField: ()=>void,
+    updateCartResetField: ()=>void }
+  )
+: JSX.Element => (
   <>
     <IconButton
       color="primary"

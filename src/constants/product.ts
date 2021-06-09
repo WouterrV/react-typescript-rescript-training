@@ -1,5 +1,5 @@
 //import product-interface
-import { Product, ProductList } from './../types/product';
+import { Product, ProductList } from '../types/types';
 
 export const productDetails: ProductList = [
   {

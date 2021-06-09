@@ -1,5 +1,5 @@
 import { findIndex, get, reduce, matches } from "lodash";
-import { Product, ProductList } from "../types/product";
+import { Product, ProductList } from "../types/types";
 
 
 export const calculateProductPrice = (product: Product) : number =>

@@ -3,6 +3,8 @@ import TableCell from "@material-ui/core/TableCell";
 import TableRow from "@material-ui/core/TableRow";
 import TextField from "@material-ui/core/TextField";
 import ProductActions from "../ProductActions/";
+import {ProductRowProps} from '../../types/types'
+
 
 const ProductRow = ({
   name,
@@ -12,8 +14,8 @@ const ProductRow = ({
   id,
   deleteFromCart,
   updateCart,
-}) => {
-  const [newProductTotal, setNewProductTotal] = useState("");
+}: ProductRowProps) : JSX.Element => {
+  const [newProductTotal, setNewProductTotal] = useState<Number>(0);
   return (
     <TableRow key={name}>
       <TableCell component="th" scope="row">
@@ -27,17 +29,17 @@ const ProductRow = ({
           id="standard-basic"
           value={newProductTotal}
           label="New Quantity"
-          onChange={(e) => setNewProductTotal(e.target.value)}
+          onChange={(e): void => setNewProductTotal(parseInt(e.target.value))}
         />
       </TableCell>
       <TableCell align="right">
         <ProductActions
-          deleteFromCartResetField={() => {
-            setNewProductTotal("");
+          deleteFromCartResetField={({}:void):void => {
+            setNewProductTotal(0);
             deleteFromCart(id);
           }}
-          updateCartResetField={() => {
-            setNewProductTotal("");
+          updateCartResetField={():void => {
+            setNewProductTotal(0);
             updateCart(id, newProductTotal);
           }}
         />
