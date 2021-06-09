@@ -15,3 +15,7 @@ export interface ProductRowProps extends Product {
   deleteFromCart: DeleteFromCartFunction,
   updateCart: UpdateCartFunction
 }
+
+export type QuantityObject = {
+  [key: string] : number;
+}
