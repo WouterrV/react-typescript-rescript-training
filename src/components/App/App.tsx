@@ -11,22 +11,24 @@ import {
   findIndexAndUpdateQuantity,
 } from "../../utils/cart";
 
-const App = () => {
-  const initialCartValue = "0";
-  const [cart, setCart] = useState(initialProductListWithTypeErrors);
-  const [calculatedPrice, setCalculatedPrice] = useState(initialCartValue);
+import {DeleteFromCartFunction, ProductList, UpdateCartFunction} from "../../types/types"
 
-  const deleteFromCart = (id) => {
+const App = (): JSX.Element => {
+  const initialCartValue = 0;
+  const [cart, setCart] = useState<ProductList>(initialProductListWithTypeErrors);
+  const [calculatedPrice, setCalculatedPrice] = useState<number>(initialCartValue);
+
+  const deleteFromCart: DeleteFromCartFunction = (id: string)  => {
     const updatedCart = findIndexAndUpdateQuantity(cart, id, 0);
-    return setCart(updatedCart);
+    setCart(updatedCart);
   };
 
-  const updateCart = (id, value) => {
+  const updateCart: UpdateCartFunction = (id: string, value: number) => {
     const updatedCart = findIndexAndUpdateQuantity(cart, id, value);
-    return setCart(updatedCart);
+    setCart(updatedCart);
   };
 
-  const calculatePrice = () => {
+  const calculatePrice = (): void => {
     const totalPrice = calculateTotalPrice(cart, initialCartValue);
     setCalculatedPrice(totalPrice);
   };

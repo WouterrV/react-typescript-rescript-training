@@ -1,7 +1,11 @@
-export const productDetails = [
+//import product-interface
+import { Product, ProductList } from './../types/product';
+
+export const productDetails: ProductList = [
   {
     id: "coffee",
     name: "bag of coffee",
+    description: "Good quality beans.",
     price: 13.12,
     quantity: 0,
   },
@@ -15,12 +19,14 @@ export const productDetails = [
   {
     id: "glasses",
     name: "sunglasses",
+    description: "",
     price: 15.1,
     quantity: 0,
   },
   {
     id: "stickers",
     name: "laptop stickers",
+    description: "",
     price: 3.0,
     quantity: 0,
   },
@@ -41,12 +47,14 @@ export const productDetails = [
   {
     id: "desk",
     name: "desk",
+    description: "",
     price: 300.0,
     quantity: 0,
   },
   {
     id: "chair",
     name: "chair",
+    description: "",
     price: 100.0,
     quantity: 0,
   },

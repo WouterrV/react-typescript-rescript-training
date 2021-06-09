@@ -8,8 +8,16 @@ import TableRow from "@material-ui/core/TableRow";
 import Paper from "@material-ui/core/Paper";
 import ProductRow from "../ProductRow/";
 import "./index.css";
+import {ProductList, DeleteFromCartFunction, UpdateCartFunction} from "../../types/types"
 
-const ProductTable = ({ cart, deleteFromCart, updateCart }) => {
+interface ProductTableProps {
+  cart: ProductList;
+  deleteFromCart: DeleteFromCartFunction;
+  updateCart: UpdateCartFunction;
+}
+
+
+const ProductTable = ({ cart, deleteFromCart, updateCart }: ProductTableProps  ) => {
   return (
     <TableContainer component={Paper} className="product-table">
       <Table aria-label="simple table">

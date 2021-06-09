@@ -1,9 +1,12 @@
 import { findIndex, get, reduce, matches } from "lodash";
+import { Product, ProductList } from "../types/product";
 
-export const calculateProductPrice = (product) =>
+
+export const calculateProductPrice = (product: Product) : number =>
   get(product, "quantity") * get(product, "price");
 
-export const calculateTotalPrice = (cart, initialTotal) =>
+export const calculateTotalPrice = (cart: ProductList,
+   initialTotal: number): number =>
   reduce(
     cart,
     (result, product) => {
@@ -13,7 +16,7 @@ export const calculateTotalPrice = (cart, initialTotal) =>
     initialTotal
   );
 
-export const findIndexAndUpdateQuantity = (cart, id, quantity) => {
+export const findIndexAndUpdateQuantity = (cart: ProductList, id: String, quantity: number) => {
   const productIndex = findIndex(cart, matches({ id }));
   const updateProduct = (product, index) =>
     index === productIndex ? { ...product, quantity } : { ...product };
